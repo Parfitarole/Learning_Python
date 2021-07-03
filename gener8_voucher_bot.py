@@ -198,14 +198,14 @@ def redeem_vouchers():
     for user in users:
         email    = user
 
-        with open('file.csv') as csv_file:
+        with open('voucher_status.csv') as csv_file:
             reader = csv.reader(csv_file)
             for row in reader:
                 if row['user'] == user:
                     voucher_quantity = row['quantity_vouchers_redeemable']
 
         if voucher_quantity < 1:
-            result = 'User' + user 'has no vouchers to redeem'
+            result = 'User' + user + 'has no vouchers to redeem'
             return result
         else:
             password = users[user]
